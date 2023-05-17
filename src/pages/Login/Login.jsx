@@ -43,7 +43,7 @@ const Login = () => {
         <SocialLogin/>
         <p className="">
           Don&apos;t have an account{" "}
-          <Link className='text-[#08a5eb]'>signUp</Link>{" "}
+          <Link to="/signup" className='text-[#08a5eb]'>signUp</Link>{" "}
         </p>
       </div>
     </div>
