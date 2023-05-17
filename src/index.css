@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-regular{
+    @apply btn bg-[#08a5eb] hover:bg-[#08a5eb] bg-opacity-90 border-none
+}
+.btn-optional{
+    @apply btn bg-[#dc3das]  hover:bg-[#dc3das] bg-opacity-90 border-none
+}
