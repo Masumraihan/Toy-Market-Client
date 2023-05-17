@@ -5,8 +5,10 @@ import Navbar from "../shared/Navbar/Navbar";
 const Root = () => {
   return (
     <>
-      <Navbar />
-      <Outlet/>
+      <div className="sticky top-0 z-50">
+        <Navbar />
+      </div>
+      <Outlet />
       <Footer />
     </>
   );

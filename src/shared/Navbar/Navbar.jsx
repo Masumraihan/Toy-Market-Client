@@ -1,19 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <a>Item 1</a>
+        <a>Home</a>
       </li>
 
       <li>
-        <a>Item 3</a>
+        <a>All Toys</a>
+      </li>
+      <li>
+        <a>Add A Toy</a>
+      </li>
+      <li>
+        <a>Blogs</a>
       </li>
     </>
   );
   return (
-    <div>
+    <>
       <div className='navbar bg-base-100'>
         <div className='navbar-start'>
           <div className='dropdown'>
@@ -37,21 +44,25 @@ const Navbar = () => {
               tabIndex={0}
               className='menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52'
             >
-                {navItems}
+              {navItems}
             </ul>
           </div>
-          <a className='btn btn-ghost normal-case text-xl'>LearnLab</a>
+
+          <a className='btn btn-ghost font-bold normal-case text-xl'>LearnLab</a>
         </div>
         <div className='navbar-center hidden lg:flex'>
-          <ul className='menu menu-horizontal px-1'>
-          {navItems}
-          </ul>
+          <ul className='menu menu-horizontal px-1'>{navItems}</ul>
         </div>
         <div className='navbar-end'>
-          <a className='btn-regular'>Get started</a>
+          <div className='avatar'>
+            <div className='w-12 mr-5 rounded-full ring ring-[#08a5eb] ring-offset-base-100 ring-offset-2'>
+              <img src='https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80' />
+            </div>
+          </div>
+          <Link to="/login" className='btn-regular'>Login</Link>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

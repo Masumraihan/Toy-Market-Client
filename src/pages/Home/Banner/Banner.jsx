@@ -3,7 +3,7 @@ import React from "react";
 const Banner = () => {
   return (
     <div className='carousel min-h-[80vh] w-full'>
-      <div id='slide1' className='carousel-item relative w-full z-50'>
+      <div id='slide1' className='carousel-item relative w-full z-40'>
         <div
           className='hero '
           style={{
@@ -26,7 +26,7 @@ const Banner = () => {
             </div>
           </div>
         </div>
-        <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
+        <div className='absolute flex justify-between transform md:-translate-y-1/2 md:left-5 right-5 md:top-1/2 bottom-5 md:bottom-auto gap-5'>
           <a href='#slide4' className='btn btn-circle'>
             ❮
           </a>
@@ -35,7 +35,7 @@ const Banner = () => {
           </a>
         </div>
       </div>
-      <div id='slide2' className='carousel-item relative w-full z-40'>
+      <div id='slide2' className='carousel-item relative w-full z-30'>
         <div
           className='hero '
           style={{
@@ -58,7 +58,7 @@ const Banner = () => {
             </div>
           </div>
         </div>
-        <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
+        <div className='absolute flex justify-between transform md:-translate-y-1/2 md:left-5 right-5 md:top-1/2 bottom-5 md:bottom-auto gap-5'>
           <a href='#slide1' className='btn btn-circle'>
             ❮
           </a>
@@ -67,7 +67,7 @@ const Banner = () => {
           </a>
         </div>
       </div>
-      <div id='slide3' className='carousel-item relative w-full z-30'>
+      <div id='slide3' className='carousel-item relative w-full z-20'>
         <div
           className='hero '
           style={{
@@ -90,7 +90,7 @@ const Banner = () => {
             </div>
           </div>
         </div>
-        <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
+        <div className='absolute flex justify-between transform md:-translate-y-1/2 md:left-5 right-5 md:top-1/2 bottom-5 md:bottom-auto gap-5'>
           <a href='#slide2' className='btn btn-circle'>
             ❮
           </a>
@@ -122,7 +122,7 @@ const Banner = () => {
             </div>
           </div>
         </div>
-        <div className='absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2'>
+        <div className='absolute flex justify-between transform md:-translate-y-1/2 md:left-5 right-5 md:top-1/2 bottom-5 md:bottom-auto gap-5'>
           <a href='#slide3' className='btn btn-circle'>
             ❮
           </a>
