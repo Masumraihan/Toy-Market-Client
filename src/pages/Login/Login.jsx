@@ -1,12 +1,50 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const { signIn, resetPassword } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location?.state?.from?.pathname || "/";
+
+  const handleResetPassword = (e) => {
+    e.preventDefault();
+    if (!email) {
+      alert("please enter your email");
+      e.target.parentNode.parentNode.parentNode.email.focus();
+      return;
+    }
+    resetPassword(email)
+      .then(() => {
+        alert("please check your email");
+      })
+      .catch((err) => {
+        setError(err);
+      });
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
+  };
   return (
     <div className='my-10 mx-5'>
       <h1 className='text-4xl text-center font-bold'>Login</h1>
-      <div className='card-body md:w-2/3 lg:w-1/3 mx-auto border py-10 my-10 rounded-lg'>
+      <form onSubmit={handleLogin} className='card-body md:w-2/3 lg:w-1/3 mx-auto border py-10 my-10 rounded-lg'>
         <div className='form-control'>
           <label className='label'>
             <span className='label-text'>Email</span>
@@ -17,6 +55,7 @@ const Login = () => {
             className='input input-bordered'
             name='email'
             required
+            onChange={(e)=>setEmail(e.target.value)}
           />
         </div>
         <div className='form-control'>
@@ -29,23 +68,27 @@ const Login = () => {
             className='input input-bordered'
             name='password'
             required
+            onChange={(e)=> setPassword(e.target.value)}
           />
           <label className='label'>
-            <a href='#' className='label-text-alt link link-hover'>
+            <a onClick={handleResetPassword} href='#' className='label-text-alt link link-hover'>
               Forgot password?
             </a>
           </label>
+          <p className="text-red-400">{error}</p>
         </div>
         <div className='form-control mt-6'>
           <button className='btn btn-regular'>Login</button>
         </div>
-        <div className="divider">or</div>
-        <SocialLogin/>
-        <p className="">
+        <div className='divider'>or</div>
+        <SocialLogin />
+        <p className=''>
           Don&apos;t have an account{" "}
-          <Link to="/signup" className='text-[#08a5eb]'>signUp</Link>{" "}
+          <Link to='/signup' className='text-[#08a5eb]'>
+            signUp
+          </Link>{" "}
         </p>
-      </div>
+      </form>
     </div>
   );
 };
