@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Tab, Tabs, TabList } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ShopCard from "./ShopCard";
-import { ClipLoader } from "react-spinners";
 
 const Shop = () => {
   const [toys, setToys] = useState([]);

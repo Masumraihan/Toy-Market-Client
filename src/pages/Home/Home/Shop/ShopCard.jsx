@@ -10,9 +10,9 @@ const ShopCard = ({ toy }) => {
         <img className='p-8 rounded-lg' src={picture} alt='product image' />
       </a>
       <div className='px-5 pb-5 space-y-5'>
-        <a href='#'>
+        <>
           <h5 className='text-xl text-start font-semibold'>{name}</h5>
-        </a>
+        </>
         <div className='flex gap-3'>
           <Rating style={{ maxWidth: "100px" }} value={rating} readOnly />
           <span className='font-bold tracking-tighter'>{rating}</span>

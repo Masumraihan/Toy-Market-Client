@@ -14,20 +14,19 @@ const Navbar = () => {
       });
   };
 
-  console.log("nva", user);
   const navItems = (
     <>
       <li>
-        <a>Home</a>
+        <Link to="/">Home</Link>
       </li>
 
       <li>
-        <Link to="/allToys">All Toys</Link>
+        <Link to='/allToys'>All Toys</Link>
       </li>
       {user && (
         <>
           <li>
-            <Link to=''>My Toys</Link>
+            <Link to='/myToys'>My Toys</Link>
           </li>
           <li>
             <Link to='/addToys'>Add A Toy</Link>
@@ -81,7 +80,7 @@ const Navbar = () => {
         <div className='navbar-end'>
           {user ? (
             <>
-              <div className='avatar'>
+              <div className='avatar tooltip tooltip-bottom' data-tip={user?.displayName}>
                 <div className='w-12 mr-5 rounded-full ring ring-[#08a5eb] ring-offset-base-100 ring-offset-2'>
                   <img src={user?.photoURL} />
                 </div>

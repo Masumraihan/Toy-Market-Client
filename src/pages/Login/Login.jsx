@@ -4,11 +4,12 @@ import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { AuthContext } from "../../providers/AuthProviders";
 
 const Login = () => {
+  const { signIn, resetPassword } = useContext(AuthContext);
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const { signIn, resetPassword } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location?.state?.from?.pathname || "/";
@@ -25,7 +26,7 @@ const Login = () => {
         alert("please check your email");
       })
       .catch((err) => {
-        setError(err);
+        setError(err.message);
       });
   };
 
@@ -33,8 +34,8 @@ const Login = () => {
     e.preventDefault();
     signIn(email, password)
       .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
+        const user = result.user;
+        console.log(user);
         navigate(from, { replace: true });
       })
       .catch((err) => {

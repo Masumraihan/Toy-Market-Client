@@ -35,8 +35,8 @@ const SignUp = () => {
     setError("");
     createUser(email, password)
       .then((result) => {
-        const createdUser = result.user;
-        console.log(createdUser);
+        const user = result.user;
+        console.log(user);
         updateUser(name, photoUrl)
           .then((result) => {
             console.log(result?.user);
@@ -54,7 +54,10 @@ const SignUp = () => {
   return (
     <div className='my-10 mx-5'>
       <h1 className='text-4xl text-center font-bold'>Create Account</h1>
-      <form onSubmit={handleSubmit} className='card-body md:w-2/3 lg:w-1/3 mx-auto border py-10 my-10 rounded-lg'>
+      <form
+        onSubmit={handleSubmit}
+        className='card-body md:w-2/3 lg:w-1/3 mx-auto border py-10 my-10 rounded-lg'
+      >
         <div className='form-control'>
           <label className='label'>
             <span className='label-text'>Name</span>
@@ -111,6 +114,7 @@ const SignUp = () => {
           ) : (
             ""
           )}
+          {error ? <p className="text-red-400">{error}</p> : ""}
         </div>
         <div className='form-control mt-6'>
           <button className='btn btn-regular'>Login</button>

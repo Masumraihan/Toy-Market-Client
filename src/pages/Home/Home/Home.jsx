@@ -4,11 +4,12 @@ import Gallery from "../Gallery/Gallery";
 import Shop from "./Shop/Shop";
 
 const Home = () => {
+
   return (
     <>
       <Banner />
       <Gallery /> {/*TODO*/}
-      <Shop/>
+      <Shop />
     </>
   );
 };
