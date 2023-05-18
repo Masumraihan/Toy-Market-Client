@@ -4,28 +4,40 @@ import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SingUp/SignUp";
 import Shop from "../pages/Home/Home/Shop/Shop";
+import AllToys from "../pages/AllToys/AllToys";
+import AddToys from "../pages/AddToys/AddToys";
+import ErrorPage from "../layouts/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
         element: <Home />,
       },
       {
-        path:"/login",
-        element:<Login/>
+        path: "/login",
+        element: <Login />,
       },
       {
-        path:"/signup",
-        element:<SignUp/>
+        path: "/signup",
+        element: <SignUp />,
       },
       {
-        path:"/shop",
-        element:<Shop/>
-      }
+        path: "/shop",
+        element: <Shop />,
+      },
+      {
+        path: "/allToys",
+        element: <AllToys />,
+      },
+      {
+        path: "/addToys",
+        element: <AddToys />,
+      },
     ],
   },
 ]);

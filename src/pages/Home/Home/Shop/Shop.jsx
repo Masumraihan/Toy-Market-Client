@@ -17,14 +17,11 @@ const Shop = () => {
       });
   }, [category]);
 
-  console.log(toys);
-  if (toys.length === 0) {
-    console.log("length === 0");
-    return <ClipLoader color='#36d7b7' />;
-  }
+  
 
   return (
     <div className='container mx-auto text-center my-20'>
+        <h1 className="text-4xl text-center font-bold mb-10">Shop by category</h1>
       <Tabs>
         <TabList>
           <Tab style={{color:"#08a5eb"}} onClick={() => setCategory("Math")}>Math Toys</Tab>

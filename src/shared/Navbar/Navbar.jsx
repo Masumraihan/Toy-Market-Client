@@ -5,12 +5,14 @@ import { AuthContext } from "../../providers/AuthProviders";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
-    logOut().then(() => {
-      alert("logout done")
-    }).catch(err => {
-      console.log(err);
-    })
-  }
+    logOut()
+      .then(() => {
+        alert("logout done");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   console.log("nva", user);
   const navItems = (
@@ -20,15 +22,15 @@ const Navbar = () => {
       </li>
 
       <li>
-        <a>All Toys</a>
+        <Link to="/allToys">All Toys</Link>
       </li>
       {user && (
         <>
           <li>
-            <a>My Toys</a>
+            <Link to=''>My Toys</Link>
           </li>
           <li>
-            <a>Add A Toy</a>
+            <Link to='/addToys'>Add A Toy</Link>
           </li>
         </>
       )}
@@ -89,7 +91,7 @@ const Navbar = () => {
               </Link>
             </>
           ) : (
-            <Link to="/login" className='btn-regular'>
+            <Link to='/login' className='btn-regular'>
               login
             </Link>
           )}
