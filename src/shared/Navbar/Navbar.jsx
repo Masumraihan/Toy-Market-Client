@@ -72,9 +72,6 @@ const Navbar = () => {
               className='w-44 rounded-lg'
             />
           </Link>
-          <Link to='/' className='btn btn-ghost font-bold normal-case text-xl'>
-            LearnLab
-          </Link>
         </div>
         <div className='navbar-center hidden lg:flex'>
           <ul className='menu menu-horizontal px-1'>{navItems}</ul>
