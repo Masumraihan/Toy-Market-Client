@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut().then(() => {
+      alert("logout done")
+    }).catch(err => {
+      console.log(err);
+    })
+  }
+
+  console.log("nva", user);
   const navItems = (
     <>
       <li>
@@ -11,9 +22,16 @@ const Navbar = () => {
       <li>
         <a>All Toys</a>
       </li>
-      <li>
-        <a>Add A Toy</a>
-      </li>
+      {user && (
+        <>
+          <li>
+            <a>My Toys</a>
+          </li>
+          <li>
+            <a>Add A Toy</a>
+          </li>
+        </>
+      )}
       <li>
         <a>Blogs</a>
       </li>
@@ -47,19 +65,37 @@ const Navbar = () => {
               {navItems}
             </ul>
           </div>
-
-          <a className='btn btn-ghost font-bold normal-case text-xl'>LearnLab</a>
+          <Link to='/'>
+            <img
+              src='https://i.ibb.co/TMbFKGg/image.png'
+              alt=''
+              className='w-44 rounded-lg'
+            />
+          </Link>
+          <Link to='/' className='btn btn-ghost font-bold normal-case text-xl'>
+            LearnLab
+          </Link>
         </div>
         <div className='navbar-center hidden lg:flex'>
           <ul className='menu menu-horizontal px-1'>{navItems}</ul>
         </div>
         <div className='navbar-end'>
-          <div className='avatar'>
-            <div className='w-12 mr-5 rounded-full ring ring-[#08a5eb] ring-offset-base-100 ring-offset-2'>
-              <img src='https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80' />
-            </div>
-          </div>
-          <Link to="/login" className='btn-regular'>Login</Link>
+          {user ? (
+            <>
+              <div className='avatar'>
+                <div className='w-12 mr-5 rounded-full ring ring-[#08a5eb] ring-offset-base-100 ring-offset-2'>
+                  <img src={user?.photoURL} />
+                </div>
+              </div>
+              <Link onClick={handleLogOut} className='btn-regular'>
+                Logout
+              </Link>
+            </>
+          ) : (
+            <Link to="/login" className='btn-regular'>
+              login
+            </Link>
+          )}
         </div>
       </div>
     </>

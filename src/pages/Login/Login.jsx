@@ -44,7 +44,10 @@ const Login = () => {
   return (
     <div className='my-10 mx-5'>
       <h1 className='text-4xl text-center font-bold'>Login</h1>
-      <form onSubmit={handleLogin} className='card-body md:w-2/3 lg:w-1/3 mx-auto border py-10 my-10 rounded-lg'>
+      <form
+        onSubmit={handleLogin}
+        className='card-body md:w-2/3 lg:w-1/3 mx-auto border py-10 my-10 rounded-lg'
+      >
         <div className='form-control'>
           <label className='label'>
             <span className='label-text'>Email</span>
@@ -55,7 +58,7 @@ const Login = () => {
             className='input input-bordered'
             name='email'
             required
-            onChange={(e)=>setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className='form-control'>
@@ -68,14 +71,18 @@ const Login = () => {
             className='input input-bordered'
             name='password'
             required
-            onChange={(e)=> setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <label className='label'>
-            <a onClick={handleResetPassword} href='#' className='label-text-alt link link-hover'>
+            <a
+              onClick={handleResetPassword}
+              href='#'
+              className='label-text-alt link link-hover'
+            >
               Forgot password?
             </a>
           </label>
-          <p className="text-red-400">{error}</p>
+          {error && password ? <p className='text-red-400'>{error}</p> : ""}
         </div>
         <div className='form-control mt-6'>
           <button className='btn btn-regular'>Login</button>
