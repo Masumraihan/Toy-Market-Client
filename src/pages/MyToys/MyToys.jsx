@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import ToysRow from "./ToysRow";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
@@ -22,6 +23,32 @@ const MyToys = () => {
     setModalOpen(false);
   };
 
+  const handleDeleteToy = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/toys/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              const remaining = myToys.filter((toy) => toy._id !== id);
+              setMyToys(remaining);
+            }
+          });
+      }
+    });
+  };
+
   useEffect(() => {
     fetch(`http://localhost:5000/myToys?email=${user?.email}`)
       .then((res) => res.json())
@@ -29,16 +56,20 @@ const MyToys = () => {
         setMyToys(data);
       });
   }, []);
-  console.log(myToys);
 
   return (
     <>
       <div className='my-10 container mx-auto '>
-        <div className='flex flex-col text-center space-y-4 mb-6 '>
-          <h1 className='text-center text-4xl font-bold tracking-tight'>
+        <div className='w-1/2 mx-auto text-center space-y-4 mb-6 '>
+          <h1 className='text-center text-4xl font-bold tracking-wide'>
             My Toys
           </h1>
-          <span className='h-2 w-24 bg-[#08a5eb]'></span>
+          <p>
+            {" "}
+            MyToys allows you to curate and organize your very own toy shop. Add
+            your favorite toys Discover the joy of building your personal toy
+            empire, all in one place.
+          </p>
         </div>
         <div className='relative overflow-x-auto shadow-md sm:rounded-lg'>
           <table className='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
@@ -66,7 +97,6 @@ const MyToys = () => {
                   Action2
                 </th>
               </tr>
-              
             </thead>
             <tbody>
               {myToys.map((toy, i) => (
@@ -75,14 +105,13 @@ const MyToys = () => {
                   i={i}
                   toy={toy}
                   setModalOpen={setModalOpen}
+                  handleDeleteToy={handleDeleteToy}
                 />
               ))}
             </tbody>
           </table>
-          {/*<!-- Edit user modal -->*/}
+          {/*<!-- Edit toy modal -->*/}
           <div
-            id='editUserModal'
-            tabindex='-1'
             aria-hidden='true'
             className={` fixed z-50 items-center  justify-center w-full p-4 ${
               modalOpen ? "" : "hidden"

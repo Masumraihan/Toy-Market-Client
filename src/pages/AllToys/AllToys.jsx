@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 
 const AllToys = () => {
-  
   return (
     <div>
-      <h1>all toys</h1>
+      <div className='w-1/2 mx-auto text-center space-y-4 mb-6 '>
+        <h1 className='text-center text-4xl font-bold tracking-wide'>
+          My Toys
+        </h1>
+        <p>
+          {" "}
+          MyToys allows you to curate and organize your very own toy shop. Add
+          your favorite toys Discover the joy of building your personal toy
+          empire, all in one place.
+        </p>
+      </div>
       <div className='relative overflow-x-auto shadow-md sm:rounded-lg'>
         <div className='flex items-center justify-between py-4 bg-white '>
           <div></div>
@@ -135,7 +144,7 @@ const AllToys = () => {
                 <td className='px-6 py-4'>${price}</td>
                 <td className='px-6 py-4'>
                   {/*<!-- Modal toggle -->*/}
-                  {/*<a
+              {/*<a
                     href='#'
                     type='button'
                     onClick={() => setModalOpen(true)}

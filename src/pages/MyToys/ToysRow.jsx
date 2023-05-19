@@ -1,8 +1,7 @@
 import React from "react";
 
-const ToysRow = ({ toy, i, setModalOpen }) => {
-  const { sellerName, sellerEmail, picture, toyName, category, price } = toy;
-  console.table(toy);
+const ToysRow = ({ toy, i, setModalOpen,handleDeleteToy }) => {
+  const { _id,sellerName, sellerEmail, picture, toyName, category, price } = toy;
   return (
     <tr className='border-b text-gray-500 bg-base-200'>
       <td className='w-4 font-bold p-4'>{++i}</td>
@@ -22,8 +21,7 @@ const ToysRow = ({ toy, i, setModalOpen }) => {
       <td className='px-6 py-4'>${price}</td>
       <td className='px-6 py-4'>
         <a
-          href='#'
-          type='button'
+          role='button'
           onClick={() => setModalOpen(true)}
           className='font-medium text-[#08a5eb] hover:underline'
         >
@@ -32,9 +30,9 @@ const ToysRow = ({ toy, i, setModalOpen }) => {
       </td>
       <td>
       <a
-          href='#'
-          type='button'
+          role='button'
           className='font-medium text-[#08a5eb] hover:underline'
+          onClick={() => handleDeleteToy(_id)}
         >
           Delete
         </a>
