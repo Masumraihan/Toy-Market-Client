@@ -25,19 +25,13 @@ const AllToys = () => {
 
   return (
     <div className='my-10 container mx-auto'>
-      <div className='w-1/2 mx-auto text-center space-y-4 mb-6 '>
+      <div className='md:w-1/2 mx-auto text-center space-y-4 mb-6 '>
         <h1 className='text-center text-4xl font-bold tracking-wide'>
-          All Toys
+          Toys Galore: Find the Perfect Playmate
         </h1>
-        <p>
-          {" "}
-          MyToys allows you to curate and organize your very own toy shop. Add
-          your favorite toys Discover the joy of building your personal toy
-          empire, all in one place.
-        </p>
       </div>
 
-      <form className='lg:w-1/3 md:w-1/2 mx-auto mb-6'>
+      <form className='lg:w-1/3 md:w-1/2 mx-auto mb-10'>
         <label
           for='default-search'
           class='mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white'

@@ -67,7 +67,9 @@ const AddToys = () => {
   return (
     <section className=''>
       <div className=' mx-auto max-w-3xl p-16 rounded-lg border lg:my-16'>
-        <h2 className='mb-4 text-3xl text-center font-bold '>Add a new Toy</h2>
+        <h2 className='mb-4 text-3xl text-center font-bold '>
+          Growing Toy Inventory: Add to Your Collection
+        </h2>
         <form onSubmit={handleAddToy}>
           <div className='grid gap-4 sm:grid-cols-2 sm:gap-6'>
             <div className='sm:col-span-2'>
@@ -228,7 +230,7 @@ const AddToys = () => {
             </div>
           </div>
           <button type='submit' className='btn-regular mt-5'>
-            Add New Toy
+            Add to Collection
           </button>
         </form>
       </div>

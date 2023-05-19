@@ -3,10 +3,12 @@ import React from "react";
 const Gallery = () => {
   return (
     <div className='my-20 container mx-auto'>
-      <h1 className='text-4xl text-center font-bold mb-10'>Out Gallery</h1>{" "}
+      <h1 className='text-4xl text-center font-bold mb-10'>
+        Toy Showcase: Exploring the Magic
+      </h1>{" "}
       <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mx-3 md:mx-0'>
         <div className='grid gap-4'>
-          <div className="">
+          <div className=''>
             <img
               className='h-auto max-w-full rounded-lg'
               src='https://media.istockphoto.com/id/1404040282/photo/new-boy-playing-with-multi-colored-wooden-block-toys.jpg?s=1024x1024&w=is&k=20&c=JiTFxjB8VyiwbnyO3NH2rzNdHwleHPs028ZMaN41fco='

@@ -101,9 +101,9 @@ const MyToys = () => {
   return (
     <>
       <div className='my-10 container mx-auto '>
-        <div className='w-1/2 mx-auto text-center space-y-4 mb-6 '>
+        <div className='md:w-1/2 mx-auto text-center space-y-4 mb-6 px-5 md:px-0'>
           <h1 className='text-center text-4xl font-bold tracking-wide'>
-            My Toys
+            My Toy Collection: Your Personal Playground
           </h1>
           <p>
             {" "}
