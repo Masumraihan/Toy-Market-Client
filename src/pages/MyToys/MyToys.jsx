@@ -112,7 +112,16 @@ const MyToys = () => {
             toy empire, all in one place.
           </p>
         </div>
-        <div> <h1 className={`text-center text-3xl font-bold ${myToys.length && 'hidden' } mb-6 `}>Please Add Some Toys</h1> </div>
+        <div>
+          {" "}
+          <h1
+            className={`text-center text-3xl font-bold ${
+              myToys.length && "hidden"
+            } mb-6 `}
+          >
+            Please Add Some Toys
+          </h1>{" "}
+        </div>
         <div className='relative overflow-x-auto sm:rounded-lg'>
           <table className='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
             <thead className='text-xs bg-base-300 shadow-2xl'>
@@ -141,7 +150,6 @@ const MyToys = () => {
               </tr>
             </thead>
             <tbody>
-              
               {myToys.map((toy, i) => (
                 <ToysRow
                   key={toy._id}

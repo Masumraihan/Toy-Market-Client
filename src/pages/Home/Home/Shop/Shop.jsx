@@ -6,7 +6,6 @@ import ShopCard from "./ShopCard";
 const Shop = () => {
   const [toys, setToys] = useState([]);
   const [category, setCategory] = useState("Math");
-  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch(
       `https://learlab-server-assignement.vercel.app/toys?category=${category}`
@@ -14,7 +13,6 @@ const Shop = () => {
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
-        setLoading(false);
       });
   }, [category]);
 
