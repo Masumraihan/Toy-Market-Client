@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
-import Swal from 'sweetalert2'
-
+import Swal from "sweetalert2";
 
 const AddToys = () => {
-    const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [toyName, setToyName] = useState("");
   const [sellerName, setSellerName] = useState(user?.displayName);
   const [sellerEmail, setSellerEmail] = useState(user?.email);
@@ -15,16 +14,23 @@ const AddToys = () => {
   const [picture, setPicture] = useState("");
   const [description, setDescription] = useState("");
 
-
   const handleAddToy = (e) => {
     e.preventDefault();
-    if (typeof price != "number") {
-      console.log(typeof price);
-      alert("price should be number");
+    if (isNaN(price)) {
+      Swal.fire({
+        title: "Error!",
+        text: "price should be numbe",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
       return;
-    }
-    if (typeof quantity != "number") {
-      alert("quantity should be number");
+    } else if (isNaN(quantity)) {
+      Swal.fire({
+        title: "Error!",
+        text: "quantity should be number",
+        icon: "error",
+        confirmButtonText: "Ok",
+      });
       return;
     }
     const toyInfo = {
