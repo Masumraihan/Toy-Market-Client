@@ -8,7 +8,9 @@ const Shop = () => {
   const [category, setCategory] = useState("Math");
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch(`http://localhost:5000/toys?category=${category}`)
+    fetch(
+      `https://learlab-server-assignement.vercel.app/toys?category=${category}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setToys(data);
@@ -16,16 +18,26 @@ const Shop = () => {
       });
   }, [category]);
 
-  
-
   return (
     <div className='container mx-auto text-center my-20'>
-        <h1 className="text-4xl text-center font-bold mb-10">Shop by category</h1>
+      <h1 className='text-4xl text-center font-bold mb-10'>Shop by category</h1>
       <Tabs>
         <TabList>
-          <Tab style={{color:"#08a5eb"}} onClick={() => setCategory("Math")}>Math Toys</Tab>
-          <Tab style={{color:"#08a5eb"}} onClick={() => setCategory("Science")}>Science Toys</Tab>
-          <Tab style={{color:"#08a5eb"}} onClick={() => setCategory("Engineer")}>Engineer Toys</Tab>
+          <Tab style={{ color: "#08a5eb" }} onClick={() => setCategory("Math")}>
+            Math Toys
+          </Tab>
+          <Tab
+            style={{ color: "#08a5eb" }}
+            onClick={() => setCategory("Science")}
+          >
+            Science Toys
+          </Tab>
+          <Tab
+            style={{ color: "#08a5eb" }}
+            onClick={() => setCategory("Engineer")}
+          >
+            Engineer Toys
+          </Tab>
         </TabList>
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
           {toys.map((toy) => (

@@ -44,7 +44,7 @@ const AddToys = () => {
       picture,
       description,
     };
-    fetch("http://localhost:5000/addToy", {
+    fetch("https://learlab-server-assignement.vercel.app/addToy", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -65,9 +65,9 @@ const AddToys = () => {
   };
 
   return (
-    <section className='bg-base-200 '>
-      <div className='py-8 px-4 mx-auto max-w-2xl lg:py-16'>
-        <h2 className='mb-4 text-xl font-bold '>Add a new Toy</h2>
+    <section className=''>
+      <div className=' mx-auto max-w-3xl p-16 rounded-lg border lg:my-16'>
+        <h2 className='mb-4 text-3xl text-center font-bold '>Add a new Toy</h2>
         <form onSubmit={handleAddToy}>
           <div className='grid gap-4 sm:grid-cols-2 sm:gap-6'>
             <div className='sm:col-span-2'>
@@ -228,7 +228,7 @@ const AddToys = () => {
             </div>
           </div>
           <button type='submit' className='btn-regular mt-5'>
-            Add Toy
+            Add New Toy
           </button>
         </form>
       </div>

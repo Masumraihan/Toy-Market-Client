@@ -22,7 +22,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/toys/${id}`, {
+        fetch(`https://learlab-server-assignement.vercel.app/toys/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -62,7 +62,7 @@ const MyToys = () => {
       quantity,
       description,
     };
-    fetch(`http://localhost:5000/toys/${toyId}`, {
+    fetch(`https://learlab-server-assignement.vercel.app/toys/${toyId}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -83,13 +83,15 @@ const MyToys = () => {
           updatedToy.price = toyInfo?.price;
           updatedToy.quantity = toyInfo?.quantity;
           updatedToy.description = toyInfo?.description;
-          setMyToys([...remaining, updatedToy]);
+          setMyToys([updatedToy, ...remaining]);
         }
       });
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myToys?email=${user?.email}`)
+    fetch(
+      `https://learlab-server-assignement.vercel.app/myToys?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
@@ -110,6 +112,7 @@ const MyToys = () => {
             toy empire, all in one place.
           </p>
         </div>
+        <div> <h1 className={`text-center text-3xl font-bold ${myToys.length && 'hidden' } mb-6 `}>Please Add Some Toys</h1> </div>
         <div className='relative overflow-x-auto sm:rounded-lg'>
           <table className='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
             <thead className='text-xs bg-base-300 shadow-2xl'>
@@ -138,6 +141,7 @@ const MyToys = () => {
               </tr>
             </thead>
             <tbody>
+              
               {myToys.map((toy, i) => (
                 <ToysRow
                   key={toy._id}

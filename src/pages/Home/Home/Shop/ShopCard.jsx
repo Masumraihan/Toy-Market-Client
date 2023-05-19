@@ -7,7 +7,7 @@ const ShopCard = ({ toy }) => {
   return (
     <div className='w-full rounded-lg shadow bg-base-200'>
       <a href='#'>
-        <img className='p-8 rounded-lg' src={picture} alt='product image' />
+        <img className='p-8 rounded-lg h-96 w-full' src={picture} alt='product image' />
       </a>
       <div className='px-5 pb-5 space-y-5'>
         <>
