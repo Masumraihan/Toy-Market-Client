@@ -9,7 +9,9 @@ const PrivateRoute = ({children}) => {
   const location = useLocation();
 
   if (loading) {
-    return <ClipLoader color='#08a5eb' />;
+    return <div className="text-center my-52">
+        <ClipLoader color='#08a5eb' />
+    </div>;
   } else if (!user) {
     return <Navigate to='/login' state={{ from: location }} replace />;
   } else {

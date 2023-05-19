@@ -3,7 +3,7 @@ import React from "react";
 import "@smastrom/react-rating/style.css";
 
 const ShopCard = ({ toy }) => {
-  const { _id, picture, price, rating, name } = toy;
+  const { _id, picture, price, rating, toyName } = toy;
   return (
     <div className='w-full rounded-lg shadow bg-base-200'>
       <a href='#'>
@@ -11,7 +11,7 @@ const ShopCard = ({ toy }) => {
       </a>
       <div className='px-5 pb-5 space-y-5'>
         <>
-          <h5 className='text-xl text-start font-semibold'>{name}</h5>
+          <h5 className='text-xl text-start font-semibold'>{toyName}</h5>
         </>
         <div className='flex gap-3'>
           <Rating style={{ maxWidth: "100px" }} value={rating} readOnly />

@@ -4,9 +4,10 @@ import Swal from 'sweetalert2'
 
 
 const AddToys = () => {
+    const { user } = useContext(AuthContext);
   const [toyName, setToyName] = useState("");
-  const [sellerName, setSellerName] = useState("");
-  const [sellerEmail, setSellerEmail] = useState("");
+  const [sellerName, setSellerName] = useState(user?.displayName);
+  const [sellerEmail, setSellerEmail] = useState(user?.email);
   const [rating, setRating] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
@@ -14,7 +15,6 @@ const AddToys = () => {
   const [picture, setPicture] = useState("");
   const [description, setDescription] = useState("");
 
-  const { user } = useContext(AuthContext);
 
   const handleAddToy = (e) => {
     e.preventDefault();
