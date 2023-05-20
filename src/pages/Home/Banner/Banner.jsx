@@ -13,7 +13,7 @@ const Banner = () => {
           <div className='hero-overlay bg-opacity-60'></div>
           <div className='hero-content text-neutral-content'>
             <div className='h-full w-[900px] bg-[#08a5eb] absolute skew-x-[-48deg] origin-bottom-left -translate-x-full left-0'></div>
-            <div className='z-10 max-w-xl'>
+            <div  data-aos="fade-up" className='z-10 max-w-xl'>
               <h1 className='mb-5 text-5xl font-bold'>
                 Discover the Joy of Learning Through Play
               </h1>

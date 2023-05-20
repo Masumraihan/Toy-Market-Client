@@ -5,7 +5,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 
 const Login = () => {
   const { signIn, resetPassword } = useContext(AuthContext);
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -17,13 +17,23 @@ const Login = () => {
   const handleResetPassword = (e) => {
     e.preventDefault();
     if (!email) {
-      alert("please enter your email");
+      Swal.fire({
+        title: "Error!",
+        text: "please enter your email",
+        icon: "error",
+        confirmButtonText: "ok",
+      });
       e.target.parentNode.parentNode.parentNode.email.focus();
       return;
     }
     resetPassword(email)
       .then(() => {
-        alert("please check your email");
+        Swal.fire({
+          title: "Error!",
+          text: "please check your email",
+          icon: "error",
+          confirmButtonText: "Cool",
+        });
       })
       .catch((err) => {
         setError(err.message);

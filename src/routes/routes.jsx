@@ -9,6 +9,7 @@ import AddToys from "../pages/AddToys/AddToys";
 import ErrorPage from "../layouts/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import MyToys from "../pages/MyToys/MyToys";
+import Blogs from "../shared/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path:"/blogs",
+        element:<Blogs/>
+      }
     ],
   },
 ]);
