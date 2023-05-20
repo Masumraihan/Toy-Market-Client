@@ -4,7 +4,7 @@ import { HiArrowLongRight } from "react-icons/hi2";
 const CustomerCare = () => {
   const [cares, setCares] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/cares/")
+    fetch("https://learlab-server-assignement.vercel.app//cares/")
       .then((res) => res.json())
       .then((data) => {
         setCares(data);
