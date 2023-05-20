@@ -10,7 +10,7 @@ const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://learlab-server-assignement.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
@@ -65,13 +65,17 @@ const Reviews = () => {
                   />
                 </>
                 <div className='px-5 pb-5'>
-                  <div className="flex items-center justify-between mb-4">
+                  <div className='flex items-center justify-between mb-4'>
                     <h5 className='text-xl font-semibold tracking-tight  text-gray-900'>
                       {review?.author}
                     </h5>
-                    <Rating readOnly style={{ maxWidth: 100 }} value={review?.rating} />
+                    <Rating
+                      readOnly
+                      style={{ maxWidth: 100 }}
+                      value={review?.rating}
+                    />
                   </div>
-                    <p>{review?.description}</p>
+                  <p>{review?.description}</p>
                 </div>
               </div>
             </SwiperSlide>

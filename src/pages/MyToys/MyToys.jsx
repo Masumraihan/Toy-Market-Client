@@ -91,19 +91,23 @@ const MyToys = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myToys?email=${user?.email}&sortBy=${parseFloat(sortBy)}`)
+    fetch(
+      `https://learlab-server-assignement.vercel.app/myToys?email=${
+        user?.email
+      }&sortBy=${parseFloat(sortBy)}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
       });
-  }, [user,sortBy]);
+  }, [user, sortBy]);
 
   return (
     <>
       <div className='my-10 container mx-auto '>
         <div className='md:w-1/2 mx-auto text-center space-y-4 mb-6 px-5 md:px-0'>
           <h1 className='text-center text-4xl font-bold tracking-wide'>
-             Your Personal Collections
+            Your Personal Collections
           </h1>
           <p>
             {" "}

@@ -9,7 +9,7 @@ const AllToys = () => {
   const [singleToy, setSingleToy] = useState({});
 
   const loadSingToy = (id) => {
-    fetch(`http://localhost:5000/toyDetails/${id}`)
+    fetch(`https://learlab-server-assignement.vercel.app/toyDetails/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setSingleToy(data);
@@ -17,13 +17,14 @@ const AllToys = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allToys?searchText=${searchText}`)
+    fetch(
+      `https://learlab-server-assignement.vercel.app/allToys?searchText=${searchText}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setAllToys(data);
       });
   }, [searchText]);
-
 
   return (
     <div className='my-10 container mx-auto'>
