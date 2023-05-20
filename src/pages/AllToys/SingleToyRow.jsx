@@ -1,6 +1,6 @@
 import React from "react";
 
-const SingleToyRow = ({ toy, i,getNavigate }) => {
+const SingleToyRow = ({ toy, i, loadSingToy }) => {
   const { sellerName, toyName, price, category, quantity, _id } = toy;
   return (
     <tr>
@@ -15,7 +15,7 @@ const SingleToyRow = ({ toy, i,getNavigate }) => {
           <label
             htmlFor='my-modal-5'
             role='button'
-            onClick={getNavigate}
+            onClick={() => loadSingToy(_id)}
             className='font-medium text-[#08a5eb] hover:underline'
           >
             Details

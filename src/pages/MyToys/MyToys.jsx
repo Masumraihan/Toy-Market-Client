@@ -7,7 +7,6 @@ import UpdateToyModal from "../../components/UpdateToyModal/UpdateToyModal";
 const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
   const [toyId, setToyId] = useState("");
-  const [control, setControl] = useState(false);
 
   const { user } = useContext(AuthContext);
 
@@ -142,10 +141,10 @@ const MyToys = () => {
                   Price
                 </th>
                 <th scope='col' className='px-6 py-3'>
-                  Action
+                  Update
                 </th>
                 <th scope='col' className='px-6 py-3'>
-                  Action2
+                  Delete
                 </th>
               </tr>
             </thead>

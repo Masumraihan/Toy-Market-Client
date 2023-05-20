@@ -3,12 +3,22 @@ import { useNavigate } from "react-router-dom";
 import SingleToyRow from "./SingleToyRow";
 import ToyDetailsModal from "../../components/ToyDetailsModal/ToyDetailsModal";
 import { AuthContext } from "../../providers/AuthProviders";
+import { ClipLoader } from "react-spinners";
 
 const AllToys = () => {
   const [searchText, setSearchText] = useState("");
   const [allToys, setAllToys] = useState([]);
+  const [singleToy, setSingleToy] = useState({});
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const loadSingToy = (id) => {
+    fetch(`http://localhost:5000/toyDetails/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setSingleToy(data);
+      });
+  };
 
   useEffect(() => {
     fetch(`http://localhost:5000/allToys?searchText=${searchText}`)
@@ -33,39 +43,45 @@ const AllToys = () => {
 
       <form className='lg:w-1/3 md:w-1/2 mx-auto mb-10'>
         <label
-          for='default-search'
-          class='mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white'
+          htmlFor='default-search'
+          className='mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white'
         >
           Search
         </label>
-        <div class='relative'>
-          <div class='absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none'>
+        <div className='relative'>
+          <div className='absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none'>
             <svg
               aria-hidden='true'
-              class='w-5 h-5 text-gray-500 dark:text-gray-400'
+              className='w-5 h-5 text-gray-500 dark:text-gray-400'
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'
               xmlns='http://www.w3.org/2000/svg'
             >
               <path
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                stroke-width='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='2'
                 d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'
               ></path>
             </svg>
           </div>
+
           <input
             type='search'
             id='default-search'
             onChange={(e) => setSearchText(e.target.value)}
-            class='block w-full p-4 pl-10 text-sm text-gray-900 border rounded-lg bg-gray-50 border-[#08a5eb] focus:ring-2 focus:ring-[#08a5eb] focus:outline-none'
+            className='block w-full p-4 pl-10 text-sm text-gray-900 border rounded-lg bg-gray-50 border-[#08a5eb] focus:ring-2 focus:ring-[#08a5eb] focus:outline-none'
             placeholder='Search Toys...'
             required
           />
         </div>
       </form>
+      {allToys.length === 0 && (
+        <div className='text-center'>
+          <ClipLoader color='#08a5eb' />
+        </div>
+      )}
 
       <div className='overflow-x-auto'>
         <table className='table w-full'>
@@ -87,13 +103,13 @@ const AllToys = () => {
                 key={toy._id}
                 toy={toy}
                 i={i}
-                getNavigate={getNavigate}
+                loadSingToy={loadSingToy}
               />
             ))}
           </tbody>
         </table>
       </div>
-      <ToyDetailsModal />
+      <ToyDetailsModal singleToy={singleToy} />
     </div>
   );
 };
