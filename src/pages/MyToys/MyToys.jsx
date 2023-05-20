@@ -9,6 +9,7 @@ import { FaAngleDown } from "react-icons/fa";
 const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
   const [toyId, setToyId] = useState("");
+  const [sortBy, setSortBy] = useState(1);
 
   const { user } = useContext(AuthContext);
 
@@ -90,21 +91,19 @@ const MyToys = () => {
   };
 
   useEffect(() => {
-    fetch(
-      `https://learlab-server-assignement.vercel.app/myToys?email=${user?.email}`
-    )
+    fetch(`http://localhost:5000/myToys?email=${user?.email}&sortBy=${parseFloat(sortBy)}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
       });
-  }, []);
+  }, [user,sortBy]);
 
   return (
     <>
       <div className='my-10 container mx-auto '>
         <div className='md:w-1/2 mx-auto text-center space-y-4 mb-6 px-5 md:px-0'>
           <h1 className='text-center text-4xl font-bold tracking-wide'>
-            My Toy Collection: Your Personal Playground
+             Your Personal Collections
           </h1>
           <p>
             {" "}
@@ -124,21 +123,21 @@ const MyToys = () => {
             Please Add Some Toys
           </h1>{" "}
         </div>
-        <div className="flex justify-end mb-3">
+        <div className='flex justify-end mb-3'>
           <div className='dropdown dropdown-end'>
             <label tabIndex={0} className='btn-regular'>
               <FaAngleDown className='text-xl ' />
-              Short By Price
+              Sort By Price
             </label>
             <ul
               tabIndex={0}
               className='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'
             >
-              <li>
-                <a>High To Low</a>
-              </li>
-              <li>
+              <li onClick={() => setSortBy(1)}>
                 <a>Low To High</a>
+              </li>
+              <li onClick={() => setSortBy(-1)}>
+                <a>High To Low</a>
               </li>
             </ul>
           </div>

@@ -12,7 +12,6 @@ const ToyDetailsModal = ({ singleToy }) => {
     description,
     rating,
   } = singleToy;
-  console.log(singleToy);
   return (
     <>
       <input type='checkbox' id='my-modal-5' className='modal-toggle' />
@@ -30,7 +29,7 @@ const ToyDetailsModal = ({ singleToy }) => {
                 <img src={picture} className='max-w-full rounded-lg shadow-2xl' />
                 
               </div>
-              <div>
+              <div className="text-start">
                 <h1 className='text-4xl font-bold'>{toyName}</h1>
                 <p className='py-6'>{description}</p>
                 <div className="flex items-end justify-between">
@@ -41,10 +40,10 @@ const ToyDetailsModal = ({ singleToy }) => {
                     </p>
                     <p>Available Quantity : {quantity}</p>
                   </div>
-                  <Rating style={{ maxWidth: 100 }} value={3} readOnly />
+                  <Rating style={{ maxWidth: 100 }} value={rating} readOnly />
                 </div>
                 <div className='divider'></div>
-                <div className="text-start">
+                <div>
                   <h3 className='font-semibold'>Seller Name : {sellerName}</h3>
                   <h4 className='font-semibold'>
                     Seller Contact :{" "}

@@ -24,8 +24,11 @@ const Shop = () => {
   }, [category]);
 
   return (
-    <div className='container mx-auto text-center my-20'>
-      <h1 className='text-4xl text-center font-bold mb-10'>Shop by category</h1>
+    <div className='container mx-auto text-center my-20 px-3 md:px-0'>
+      <div className='divider text-gray-400'>Let&apos; Shopping</div>
+      <h1 className='text-4xl text-center font-bold mb-10'>
+        Shop by Category
+      </h1>
       <Tabs>
         <TabList>
           <Tab style={{ color: "#08a5eb" }} onClick={() => setCategory("Math")}>

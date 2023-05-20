@@ -6,13 +6,7 @@ const ShopCard = ({ toy, getSingleToy }) => {
   const { _id, picture, price, rating, toyName } = toy;
   return (
     <div className='w-full rounded-lg shadow bg-base-200'>
-      <a href='#'>
-        <img
-          className='p-8 rounded-lg h-96 w-full'
-          src={picture}
-          alt='product image'
-        />
-      </a>
+      <img className='p-8 h-96 w-full rounded-lg hover:scale-105  transition-transform' src={picture} alt='product image' />
       <div className='px-5 pb-5 space-y-5'>
         <div className='flex items-center justify-between mb-10'>
           <h5 className='text-xl text-start font-semibold'>{toyName}</h5>
