@@ -1,16 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import SingleToyRow from "./SingleToyRow";
 import ToyDetailsModal from "../../components/ToyDetailsModal/ToyDetailsModal";
-import { AuthContext } from "../../providers/AuthProviders";
 import { ClipLoader } from "react-spinners";
 
 const AllToys = () => {
   const [searchText, setSearchText] = useState("");
   const [allToys, setAllToys] = useState([]);
   const [singleToy, setSingleToy] = useState({});
-  const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
 
   const loadSingToy = (id) => {
     fetch(`http://localhost:5000/toyDetails/${id}`)
@@ -28,10 +24,6 @@ const AllToys = () => {
       });
   }, [searchText]);
 
-  const getNavigate = () => {
-    !user && navigate("/login", { replace: true });
-    return;
-  };
 
   return (
     <div className='my-10 container mx-auto'>

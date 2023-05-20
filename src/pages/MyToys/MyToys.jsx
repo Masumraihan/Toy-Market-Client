@@ -3,6 +3,8 @@ import { AuthContext } from "../../providers/AuthProviders";
 import ToysRow from "./ToysRow";
 import Swal from "sweetalert2";
 import UpdateToyModal from "../../components/UpdateToyModal/UpdateToyModal";
+import { ClipLoader } from "react-spinners";
+import { FaAngleDown } from "react-icons/fa";
 
 const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
@@ -111,6 +113,7 @@ const MyToys = () => {
             toy empire, all in one place.
           </p>
         </div>
+
         <div>
           {" "}
           <h1
@@ -121,6 +124,30 @@ const MyToys = () => {
             Please Add Some Toys
           </h1>{" "}
         </div>
+        <div className="flex justify-end mb-3">
+          <div className='dropdown dropdown-end'>
+            <label tabIndex={0} className='btn-regular'>
+              <FaAngleDown className='text-xl ' />
+              Short By Price
+            </label>
+            <ul
+              tabIndex={0}
+              className='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'
+            >
+              <li>
+                <a>High To Low</a>
+              </li>
+              <li>
+                <a>Low To High</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        {myToys.length === 0 && (
+          <div className='text-center'>
+            <ClipLoader color='#08a5eb' />
+          </div>
+        )}
         <div className='relative overflow-x-auto sm:rounded-lg'>
           <table className='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
             <thead className='text-xs bg-base-300 shadow-2xl'>
@@ -148,6 +175,7 @@ const MyToys = () => {
                 </th>
               </tr>
             </thead>
+
             <tbody>
               {myToys.map((toy, i) => (
                 <ToysRow

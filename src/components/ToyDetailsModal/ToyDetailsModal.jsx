@@ -44,7 +44,7 @@ const ToyDetailsModal = ({ singleToy }) => {
                   <Rating style={{ maxWidth: 100 }} value={3} readOnly />
                 </div>
                 <div className='divider'></div>
-                <div>
+                <div className="text-start">
                   <h3 className='font-semibold'>Seller Name : {sellerName}</h3>
                   <h4 className='font-semibold'>
                     Seller Contact :{" "}

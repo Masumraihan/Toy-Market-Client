@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { Tab, Tabs, TabList } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import ShopCard from "./ShopCard";
+import ToyDetailsModal from "../../../../components/ToyDetailsModal/ToyDetailsModal";
 
 const Shop = () => {
   const [toys, setToys] = useState([]);
   const [category, setCategory] = useState("Math");
+  const [singleToy, setSingleToy] = useState({});
+
+  const getSingleToy = (toy) => {
+    setSingleToy(toy);
+  };
+
   useEffect(() => {
     fetch(
       `https://learlab-server-assignement.vercel.app/toys?category=${category}`
@@ -39,10 +46,11 @@ const Shop = () => {
         </TabList>
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
           {toys.map((toy) => (
-            <ShopCard key={toy._id} toy={toy} />
+            <ShopCard key={toy._id} toy={toy} getSingleToy={getSingleToy} />
           ))}
         </div>
       </Tabs>
+      <ToyDetailsModal singleToy={singleToy} />
     </div>
   );
 };
