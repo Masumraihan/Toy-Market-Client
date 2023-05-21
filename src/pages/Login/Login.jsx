@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { AuthContext } from "../../providers/AuthProviders";
 import useTitle from "../../Hooks/UseTitle";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { signIn, resetPassword } = useContext(AuthContext);
@@ -30,10 +31,10 @@ const Login = () => {
     resetPassword(email)
       .then(() => {
         Swal.fire({
-          title: "Error!",
+          title: "Success!",
           text: "please check your email",
-          icon: "error",
-          confirmButtonText: "Cool",
+          icon: "success",
+          confirmButtonText: "ok",
         });
       })
       .catch((err) => {
