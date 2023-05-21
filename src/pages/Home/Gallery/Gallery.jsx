@@ -13,7 +13,7 @@ const Gallery = () => {
 
   return (
     <div data-aos='fade-top' className='my-20 container mx-auto'>
-      <div className='divider text-gray-400'>My Gallery</div>
+      <div className='divider text-gray-400'>Gallery</div>
       <h1 className='text-4xl text-center font-bold mb-10'>
         Toy Showcase: Exploring the Magic
       </h1>{" "}
