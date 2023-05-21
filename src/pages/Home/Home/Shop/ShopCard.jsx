@@ -2,7 +2,7 @@ import { Rating } from "@smastrom/react-rating";
 import React, { useContext } from "react";
 import "@smastrom/react-rating/style.css";
 import { AuthContext } from "../../../../providers/AuthProviders";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ShopCard = ({ toy, getSingleToy }) => {
@@ -23,15 +23,17 @@ const ShopCard = ({ toy, getSingleToy }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         navigate("/login", { state: location });
-        
       }
     });
   };
 
   return (
-    <div data-aos="fade-top" className='w-full rounded-lg shadow p-8 bg-base-200'>
+    <div
+      data-aos='fade-top'
+      className='w-full rounded-lg shadow p-8 bg-base-200'
+    >
       <img
-        className=' h-96  w-full rounded-lg hover:scale-105  transition-transform'
+        className=' h-96  w-full rounded-lg hover:scale-105 duration-500 ease-in-out transition-transform'
         src={picture}
         alt='product image'
       />

@@ -102,9 +102,9 @@ const Navbar = () => {
                   <img src={user?.photoURL} />
                 </div>
               </div>
-              <Link onClick={handleLogOut} className='btn-regular'>
+              <button onClick={handleLogOut} className='btn-regular'>
                 Logout
-              </Link>
+              </button>
             </>
           ) : (
             <Link to='/login' className='btn-regular'>

@@ -6,7 +6,7 @@ import useTitle from "../../Hooks/UseTitle";
 
 const Login = () => {
   const { signIn, resetPassword } = useContext(AuthContext);
-useTitle("Login")
+  useTitle("Login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
