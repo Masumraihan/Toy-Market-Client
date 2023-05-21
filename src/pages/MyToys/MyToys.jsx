@@ -13,7 +13,7 @@ const MyToys = () => {
   const [sortBy, setSortBy] = useState(1);
 
   const { user } = useContext(AuthContext);
-  useTitle("My-Toys")
+  useTitle("My-Toys");
 
   const handleDeleteToy = (id) => {
     Swal.fire({
@@ -21,7 +21,7 @@ const MyToys = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#08a5eb",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
@@ -48,6 +48,7 @@ const MyToys = () => {
         title: "Error!",
         text: "price should be number",
         icon: "error",
+        confirmButtonColor:"#08a5eb",
         confirmButtonText: "Ok",
       });
       return;
@@ -57,6 +58,7 @@ const MyToys = () => {
         title: "Error!",
         text: "quantity should be number",
         icon: "error",
+        confirmButtonColor:"#08a5eb",
         confirmButtonText: "Ok",
       });
       return;
@@ -80,6 +82,7 @@ const MyToys = () => {
             title: "Your Toy Updated",
             text: "Do you want to continue",
             icon: "success",
+            confirmButtonColor:"#08a5eb",
             confirmButtonText: "Thank You",
           });
           const remaining = myToys.filter((toy) => toy._id !== toyId);
@@ -153,7 +156,10 @@ const MyToys = () => {
             <ClipLoader color='#08a5eb' />
           </div>
         )}
-        <div data-aos="fade-left" className='relative overflow-x-auto sm:rounded-lg'>
+        <div
+          data-aos='fade-left'
+          className='relative overflow-x-auto sm:rounded-lg'
+        >
           <table className='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
             <thead className='text-xs bg-base-300 shadow-2xl'>
               <tr>

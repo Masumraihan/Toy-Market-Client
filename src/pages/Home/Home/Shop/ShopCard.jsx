@@ -17,7 +17,7 @@ const ShopCard = ({ toy, getSingleToy }) => {
       text: "You have to log in first to view details!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#08a5eb",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes",
     }).then((result) => {
