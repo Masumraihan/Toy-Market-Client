@@ -3,7 +3,7 @@ import React from "react";
 const SingleToyRow = ({ toy, i, loadSingToy }) => {
   const { sellerName, toyName, price, category, quantity, _id } = toy;
   return (
-    <tr>
+    <tr data-aos="fade-left">
       <th>{++i}</th>
       <td>{sellerName}</td>
       <td>{toyName}</td>

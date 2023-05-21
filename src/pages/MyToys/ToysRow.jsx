@@ -4,7 +4,7 @@ const ToysRow = ({ toy, i, handleDeleteToy, setToyId }) => {
   const { _id, sellerName, sellerEmail, picture, toyName, category, price } =
     toy;
   return (
-    <tr className='border-b text-gray-500 bg-base-200'>
+    <tr data-aos="fade-right" className='border-b text-gray-500 bg-base-200'>
       <td className='w-4 font-bold p-4'>{++i}</td>
       <td className='flex items-center justify-center py-4 text-gray-900 whitespace-nowrap'>
         <img

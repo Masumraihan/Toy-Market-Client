@@ -18,7 +18,7 @@ const Reviews = () => {
   }, []);
 
   return (
-    <div className='container mx-auto my-10'>
+    <div data-aos="fade-up" className='container mx-auto my-10'>
       <div className='divider text-gray-400'>Our Costumer Reviews</div>
       <h1 className='text-4xl text-center font-bold mb-10'>Customer Reviews</h1>
       {reviews.length === 0 && (

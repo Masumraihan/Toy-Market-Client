@@ -4,7 +4,7 @@ import { HiArrowLongRight } from "react-icons/hi2";
 const CustomerCare = () => {
   const [cares, setCares] = useState([]);
   useEffect(() => {
-    fetch("https://learlab-server-assignement.vercel.app//cares/")
+    fetch("https://learlab-server-assignement.vercel.app/cares/")
       .then((res) => res.json())
       .then((data) => {
         setCares(data);
@@ -18,7 +18,11 @@ const CustomerCare = () => {
       </h1>
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
         {cares.map((care) => (
-          <div key={care._id} className='card p-8 border bg-base-100'>
+          <div
+            data-aos='fade-up'
+            key={care._id}
+            className='card p-8 border bg-base-100'
+          >
             <figure>
               <img src={care.image} alt={care.careType} />
             </figure>
@@ -27,7 +31,7 @@ const CustomerCare = () => {
               <p>{care.details}</p>
               <div className='card-actions items-center mt-3'>
                 <button className=' text-[#08a5eb]'>{care.link}</button>
-                <HiArrowLongRight className="text-2xl"/>
+                <HiArrowLongRight className='text-2xl' />
               </div>
             </div>
           </div>

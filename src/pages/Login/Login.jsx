@@ -2,10 +2,11 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { AuthContext } from "../../providers/AuthProviders";
+import useTitle from "../../Hooks/UseTitle";
 
 const Login = () => {
   const { signIn, resetPassword } = useContext(AuthContext);
-
+useTitle("Login")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");

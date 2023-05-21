@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
+import useTitle from "../../Hooks/UseTitle";
 
 const AddToys = () => {
   const { user } = useContext(AuthContext);
@@ -13,6 +14,7 @@ const AddToys = () => {
   const [quantity, setQuantity] = useState("");
   const [picture, setPicture] = useState("");
   const [description, setDescription] = useState("");
+  useTitle("Add-Toys")
 
   const handleAddToy = (e) => {
     e.preventDefault();
@@ -65,7 +67,7 @@ const AddToys = () => {
   };
 
   return (
-    <section className=''>
+    <section data-aos="fade-left">
       <div className=' mx-auto max-w-3xl p-16 rounded-lg border lg:my-16'>
         <h2 className='mb-4 text-3xl text-center font-bold '>
           Growing Toy Inventory: Add to Your Collection

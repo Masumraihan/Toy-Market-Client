@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import { AuthContext } from "../../providers/AuthProviders";
+import useTitle from "../../Hooks/UseTitle";
 
 const SignUp = () => {
   const [password, setPassword] = useState("");
@@ -12,6 +13,7 @@ const SignUp = () => {
   const [error, setError] = useState("");
 
   const { createUser, updateUser, logOut } = useContext(AuthContext);
+  useTitle("SignUp")
   const navigate = useNavigate();
 
   const handlePassword = (e) => {

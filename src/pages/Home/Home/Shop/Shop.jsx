@@ -9,6 +9,7 @@ const Shop = () => {
   const [category, setCategory] = useState("Math");
   const [singleToy, setSingleToy] = useState({});
 
+
   const getSingleToy = (toy) => {
     setSingleToy(toy);
   };

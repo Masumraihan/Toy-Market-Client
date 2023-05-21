@@ -2,13 +2,34 @@ import { Rating } from "@smastrom/react-rating";
 import React, { useContext } from "react";
 import "@smastrom/react-rating/style.css";
 import { AuthContext } from "../../../../providers/AuthProviders";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const ShopCard = ({ toy, getSingleToy }) => {
   const { _id, picture, price, rating, toyName } = toy;
   const { user } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    Swal.fire({
+      title: "Go To Login Page",
+      text: "You have to log in first to view details!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate("/login", { state: location });
+        
+      }
+    });
+  };
+
   return (
-    <div className='w-full rounded-lg shadow p-8 bg-base-200'>
+    <div data-aos="fade-top" className='w-full rounded-lg shadow p-8 bg-base-200'>
       <img
         className=' h-96  w-full rounded-lg hover:scale-105  transition-transform'
         src={picture}
@@ -39,7 +60,9 @@ const ShopCard = ({ toy, getSingleToy }) => {
               View Details
             </label>
           ) : (
-            <Link to="/login" className='btn btn-regular'>View Details</Link>
+            <button onClick={handleNavigate} className='btn btn-regular'>
+              View Details
+            </button>
           )}
         </div>
       </div>

@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import UpdateToyModal from "../../components/UpdateToyModal/UpdateToyModal";
 import { ClipLoader } from "react-spinners";
 import { FaAngleDown } from "react-icons/fa";
+import useTitle from "../../Hooks/UseTitle";
 
 const MyToys = () => {
   const [myToys, setMyToys] = useState([]);
@@ -12,6 +13,7 @@ const MyToys = () => {
   const [sortBy, setSortBy] = useState(1);
 
   const { user } = useContext(AuthContext);
+  useTitle("My-Toys")
 
   const handleDeleteToy = (id) => {
     Swal.fire({
@@ -124,7 +126,7 @@ const MyToys = () => {
               myToys.length && "hidden"
             } mb-6 `}
           >
-            Please Add Some Toys
+            Empty
           </h1>{" "}
         </div>
         <div className='flex justify-end mb-3'>
@@ -151,7 +153,7 @@ const MyToys = () => {
             <ClipLoader color='#08a5eb' />
           </div>
         )}
-        <div className='relative overflow-x-auto sm:rounded-lg'>
+        <div data-aos="fade-left" className='relative overflow-x-auto sm:rounded-lg'>
           <table className='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
             <thead className='text-xs bg-base-300 shadow-2xl'>
               <tr>

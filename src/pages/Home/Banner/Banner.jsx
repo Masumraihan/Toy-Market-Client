@@ -2,7 +2,7 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div className='carousel min-h-[80vh] w-full'>
+    <div  data-aos="fade-right" className='carousel min-h-[80vh] w-full'>
       <div id='slide1' className='carousel-item relative w-full z-40'>
         <div
           className='hero '
@@ -13,7 +13,7 @@ const Banner = () => {
           <div className='hero-overlay bg-opacity-60'></div>
           <div className='hero-content text-neutral-content'>
             <div className='h-full w-[900px] bg-[#08a5eb] absolute skew-x-[-48deg] origin-bottom-left -translate-x-full left-0'></div>
-            <div  data-aos="fade-up" className='z-10 max-w-xl'>
+            <div className='z-10 max-w-xl'>
               <h1 className='mb-5 text-5xl font-bold'>
                 Discover the Joy of Learning Through Play
               </h1>

@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import SingleToyRow from "./SingleToyRow";
 import ToyDetailsModal from "../../components/ToyDetailsModal/ToyDetailsModal";
 import { ClipLoader } from "react-spinners";
+import useTitle from "../../Hooks/UseTitle";
 
 const AllToys = () => {
   const [searchText, setSearchText] = useState("");
   const [allToys, setAllToys] = useState([]);
   const [singleToy, setSingleToy] = useState({});
+  useTitle("All-Toys")
 
   const loadSingToy = (id) => {
     fetch(`https://learlab-server-assignement.vercel.app/toyDetails/${id}`)
@@ -34,7 +36,7 @@ const AllToys = () => {
         </h1>
       </div>
 
-      <form className='lg:w-1/3 md:w-1/2 mx-auto mb-10'>
+      <form data-aos="fade-left" className='lg:w-1/3 md:w-1/2 mx-auto mb-10'>
         <label
           htmlFor='default-search'
           className='mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white'
@@ -76,7 +78,7 @@ const AllToys = () => {
         </div>
       )}
 
-      <div className='overflow-x-auto'>
+      <div data-aos="fade-right" className='overflow-x-auto'>
         <table className='table w-full'>
           {/* head */}
           <thead>
