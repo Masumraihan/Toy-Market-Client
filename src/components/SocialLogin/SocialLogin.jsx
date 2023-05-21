@@ -7,13 +7,15 @@ const SocialLogin = () => {
   const { googleLogIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
-  const location = useLocation()
+  const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
 
   const handleGoogleLogin = () => {
+    const allToysPath = JSON.parse(localStorage.getItem("pathName"));
+
     googleLogIn()
       .then(() => {
-        navigate(from, { replace: true });
+        navigate(allToysPath?.pathname || from, { replace: true });
       })
       .catch((err) => {
         console.log(err.message);

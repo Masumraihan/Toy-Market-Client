@@ -42,12 +42,14 @@ const Login = () => {
   };
 
   const handleLogin = (e) => {
+    const allToysPath = JSON.parse(localStorage.getItem("pathName"));
+    
     e.preventDefault();
     signIn(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate(from, { replace: true });
+        navigate(allToysPath?.pathname || from, { replace: true });
       })
       .catch((err) => {
         setError(err.message);

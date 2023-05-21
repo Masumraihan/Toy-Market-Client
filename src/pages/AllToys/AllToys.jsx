@@ -11,6 +11,8 @@ const AllToys = () => {
   useTitle("All-Toys")
 
   const loadSingToy = (id) => {
+    localStorage.removeItem("pathName")
+    
     fetch(`https://learlab-server-assignement.vercel.app/toyDetails/${id}`)
       .then((res) => res.json())
       .then((data) => {
